@@ -3,7 +3,7 @@ import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
 import 'package:krishibazaar/screens/navbar.dart';
 
 import '../customer_home_screen.dart';
-import '../home_screen.dart';
+import '../farmer_home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

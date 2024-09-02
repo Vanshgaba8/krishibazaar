@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/dashboard.dart';
-import 'package:krishibazaar/screens/home_screen.dart';
+import 'package:krishibazaar/screens/farmer_home_screen.dart';
 import 'package:krishibazaar/screens/notificationscreen.dart';
-
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -17,7 +16,6 @@ class _NavbarState extends State<Navbar> {
   final List<Widget> screens = [
     HomeScreen(),
     NotificationScreen(),
-
     DashboardScreen(),
   ];
 
@@ -26,8 +24,11 @@ class _NavbarState extends State<Navbar> {
     return Scaffold(
       backgroundColor: Color(0xFFFFF8D8),
       appBar: AppBar(
-        title: const Text('Krishi Bazaar',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
-        backgroundColor: Colors.green[800], // Green theme for app
+        title: const Text(
+          'Krishi Bazaar',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.green[700], // Green theme for app
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index, // This determines the selected item
@@ -41,18 +42,26 @@ class _NavbarState extends State<Navbar> {
         unselectedItemColor: Colors.green[300],
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,size: 30,),
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications,size: 30,),
+            icon: Icon(
+              Icons.notifications,
+              size: 30,
+            ),
             label: 'Notifications',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person,size: 30,),
+            icon: Icon(
+              Icons.person,
+              size: 30,
+            ),
             label: 'Profile',
           ),
-        
         ],
       ),
       body: IndexedStack(
@@ -62,5 +71,3 @@ class _NavbarState extends State<Navbar> {
     );
   }
 }
-
-

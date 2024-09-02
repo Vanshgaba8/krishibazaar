@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/authorisation/login_screen.dart';
 import 'package:krishibazaar/screens/customer_home_screen.dart';
-import 'package:krishibazaar/screens/home_screen.dart';
+import 'package:krishibazaar/screens/farmer_home_screen.dart';
 
 class SignUpCustomer extends StatefulWidget {
   const SignUpCustomer({super.key});

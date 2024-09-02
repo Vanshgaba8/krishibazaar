@@ -7,7 +7,10 @@ class CustomerHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Krishi Bazaar'),
+        title: const Text(
+          'Krishi Bazaar',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
         backgroundColor: Colors.green[700],
       ),
       body: Padding(
