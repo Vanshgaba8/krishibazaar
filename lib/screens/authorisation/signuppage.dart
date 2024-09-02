@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:krishibazaar/screens/autherisation/farmorcust.dart';
-import 'package:krishibazaar/screens/autherisation/login_screen.dart';
+import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
+import 'package:krishibazaar/screens/authorisation/login_screen.dart';
 import 'package:krishibazaar/screens/home_screen.dart';
 import 'package:krishibazaar/screens/navbar.dart';
 
@@ -52,25 +52,24 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
                       // name Field
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          prefixIcon: const Icon(Icons.person),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Name',
+                            prefixIcon: const Icon(Icons.person),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 15),
 
@@ -78,25 +77,24 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
 
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Email ID',
-                          prefixIcon: const Icon(Icons.mail),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Email ID',
+                            prefixIcon: const Icon(Icons.mail),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 15),
 
@@ -136,25 +134,24 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
 
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Phone No.',
-                          prefixIcon: const Icon(Icons.phone),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Phone No.',
+                            prefixIcon: const Icon(Icons.phone),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 15),
 
@@ -162,98 +159,103 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
 
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Address',
-                          prefixIcon: const Icon(Icons.location_city),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Address',
+                            prefixIcon: const Icon(Icons.location_city),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 15),
 
                       //Upload File Field
 
                       DropdownButtonFormField<String>(
-  decoration: InputDecoration(
-    labelText: 'Choose File',
-    prefixIcon: const Icon(Icons.file_copy),
-    filled: true,
-    fillColor: Colors.green[100],
-    enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                        decoration: InputDecoration(
+                            labelText: 'Choose File',
+                            prefixIcon: const Icon(Icons.file_copy),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-  ),
-  items: [
-    DropdownMenuItem(value: 'Income certificate', child: Text('Income certificate')),
-    DropdownMenuItem(value: 'Kisan Credit Card', child: Text('Kisan Credit Card')),
-    DropdownMenuItem(value: 'Aadhaar card', child: Text('Aadhaar card')),
-    DropdownMenuItem(value: 'Land Record(Khatauni)', child: Text('Land Record(Khatauni)')),
-  ],
-  onChanged: (value) {
-    // Handle value change here
-  },
-  validator: (value) {
-    if (value == null || value.isEmpty) {
-      return 'Please select a file type';
-    }
-    return null;
-  },
-),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
+                        items: [
+                          DropdownMenuItem(
+                              value: 'Income certificate',
+                              child: Text('Income certificate')),
+                          DropdownMenuItem(
+                              value: 'Kisan Credit Card',
+                              child: Text('Kisan Credit Card')),
+                          DropdownMenuItem(
+                              value: 'Aadhaar card',
+                              child: Text('Aadhaar card')),
+                          DropdownMenuItem(
+                              value: 'Land Record(Khatauni)',
+                              child: Text('Land Record(Khatauni)')),
+                        ],
+                        onChanged: (value) {
+                          // Handle value change here
+                        },
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please select a file type';
+                          }
+                          return null;
+                        },
+                      ),
                       const SizedBox(height: 20),
 
                       GestureDetector(
-                        onTap: (){
-
-                          //for upload document function 
-
-
+                        onTap: () {
+                          //for upload document function
                         },
                         child: Container(
                           width: 200,
                           height: 50,
-                          
                           decoration: BoxDecoration(
-                            color: Colors.yellow[100],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Color(0xFFf29716),width: 2.0)
-                        
-                          ),
+                              color: Colors.yellow[100],
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                  color: Color(0xFFf29716), width: 2.0)),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text("Upload document"),
-                              SizedBox(width: 10,),
+                              SizedBox(
+                                width: 10,
+                              ),
                               Icon(Icons.upload_file),
                             ],
                           ),
                         ),
                       ),
 
-                      SizedBox(height: 15,),
+                      SizedBox(
+                        height: 15,
+                      ),
 
                       // Sign In Button
                       SizedBox(
@@ -302,7 +304,9 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
                             },
                             child: const Text(
                               'Sign In',
-                              style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],

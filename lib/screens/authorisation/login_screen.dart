@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:krishibazaar/screens/autherisation/login_screen.dart';
-import 'package:krishibazaar/screens/customer_home_screen.dart';
-import 'package:krishibazaar/screens/home_screen.dart';
+import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
+import 'package:krishibazaar/screens/navbar.dart';
 
-class SignUpCustomer extends StatefulWidget {
-  const SignUpCustomer({super.key});
+import '../customer_home_screen.dart';
+import '../home_screen.dart';
 
-  @override
-  State<SignUpCustomer> createState() => _SignUpCustomerState();
-}
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
-class _SignUpCustomerState extends State<SignUpCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +34,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           ),
                           const SizedBox(height: 10),
                           const Text(
-                            'Welcome Customer',
+                            'Welcome back User',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -48,54 +45,27 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                       ),
                       const SizedBox(height: 30),
 
-                      // name Field
+                      // Username Field
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Name',
-                          prefixIcon: const Icon(Icons.person),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                         enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Username',
+                            prefixIcon: const Icon(Icons.person),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-
-                      //email id Field
-
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Email ID',
-                          prefixIcon: const Icon(Icons.mail),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 20),
 
@@ -110,7 +80,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(12),
                           ),
                           floatingLabelStyle: const TextStyle(
                               color: Color.fromARGB(255, 101, 67, 33),
@@ -129,35 +99,21 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      //const SizedBox(height: 10),
 
-                      //phone no. Field
-
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Phone No.',
-                          prefixIcon: const Icon(Icons.phone),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(10),
+                      // Forgot Password
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          onPressed: () {
+                            // forgot password logic
+                          },
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(color: Colors.brown),
                           ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
                         ),
                       ),
-                      const SizedBox(height: 20),
-
-                    
 
                       // Sign In Button
                       SizedBox(
@@ -168,7 +124,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const CustomerHomeScreen()),
+                                  builder: (context) => const Navbar()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -180,7 +136,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           child: const Padding(
                             padding: EdgeInsets.all(15.0),
                             child: Text(
-                              'Sign Up',
+                              'Sign In',
                               style:
                                   TextStyle(fontSize: 18, color: Colors.white),
                             ),
@@ -194,19 +150,22 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Already have an account?"),
+                          const Text("Don't have an account?"),
                           TextButton(
                             onPressed: () {
                               // navigate to sign up
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginScreen()),
+                                    builder: (context) =>
+                                        const FarmerOrCustomer()),
                               );
                             },
                             child: const Text(
-                              'Sign In',
-                              style: TextStyle(color: Colors.green),
+                              'Sign Up',
+                              style: TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],

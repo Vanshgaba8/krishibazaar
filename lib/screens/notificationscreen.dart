@@ -10,11 +10,14 @@ class NotificationScreen extends StatefulWidget {
 class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Column(
+    return SafeArea(
+        child: Column(
       children: [
-        SizedBox(height: 8,),
+        SizedBox(
+          height: 8,
+        ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
@@ -28,26 +31,34 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Icon(Icons.notifications),
                 ),
-                Text("Notification History",style: TextStyle(fontWeight: FontWeight.bold),),
+                Text(
+                  "Notification History",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           ),
         ),
-
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("New Notifications",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 20)),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text("Mark as Read",style: TextStyle(color:Colors.blueGrey,fontWeight: FontWeight.w400),),
-          )
-        ],),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("New Notifications",
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20)),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                "Mark as Read",
+                style: TextStyle(
+                    color: Colors.blueGrey, fontWeight: FontWeight.w400),
+              ),
+            )
+          ],
+        ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -61,14 +72,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Icon(Icons.shopping_cart),
                 ),
-                Text("new order from xyz"),
+                Text("New order from xyz"),
               ],
             ),
           ),
         ),
-
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -82,15 +92,13 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Icon(Icons.local_shipping),
                 ),
-                Text("order delivered to abc"),
+                Text("Order delivered to abc"),
               ],
             ),
           ),
         ),
-
-        
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8),
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -104,13 +112,12 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Icon(Icons.analytics),
                 ),
-                Text("analytics of august came out. Check it Out"),
+                Text("Analytics of August came out. Check it Out"),
               ],
             ),
           ),
         ),
       ],
-    )
-    );
+    ));
   }
 }

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:krishibazaar/screens/autherisation/farmorcust.dart';
-import 'package:krishibazaar/screens/navbar.dart';
+import 'package:krishibazaar/screens/authorisation/login_screen.dart';
+import 'package:krishibazaar/screens/customer_home_screen.dart';
+import 'package:krishibazaar/screens/home_screen.dart';
 
+class SignUpCustomer extends StatefulWidget {
+  const SignUpCustomer({super.key});
 
-import '../customer_home_screen.dart';
-import '../home_screen.dart';
+  @override
+  State<SignUpCustomer> createState() => _SignUpCustomerState();
+}
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
+class _SignUpCustomerState extends State<SignUpCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           const Text(
-                            'Welcome back User',
+                            'Welcome Customer',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -46,28 +48,52 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
 
-                      // Username Field
+                      // name Field
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Username',
-                          prefixIcon: const Icon(Icons.person),
-                          filled: true,
-                          fillColor: Colors.green[100],
-                          enabledBorder: OutlineInputBorder(
-                            borderSide:
-                                const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          floatingLabelStyle: const TextStyle(
-                              color: Color.fromARGB(255, 101, 67, 33),
-                              fontSize: 18),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
+                            labelText: 'Name',
+                            prefixIcon: const Icon(Icons.person),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                width: 1.5),
-                            borderRadius: BorderRadius.circular(10),
-                          )
-                        ),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
+                      ),
+                      const SizedBox(height: 20),
+
+                      //email id Field
+
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'Email ID',
+                            prefixIcon: const Icon(Icons.mail),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
                       const SizedBox(height: 20),
 
@@ -82,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                           enabledBorder: OutlineInputBorder(
                             borderSide:
                                 const BorderSide(color: Colors.brown, width: 2),
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           floatingLabelStyle: const TextStyle(
                               color: Color.fromARGB(255, 101, 67, 33),
@@ -101,21 +127,32 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      //const SizedBox(height: 10),
+                      const SizedBox(height: 20),
 
-                      // Forgot Password
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            // forgot password logic
-                          },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(color: Colors.brown),
-                          ),
-                        ),
+                      //phone no. Field
+
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'Phone No.',
+                            prefixIcon: const Icon(Icons.phone),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            floatingLabelStyle: const TextStyle(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                fontSize: 18),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color.fromARGB(255, 101, 67, 33),
+                                  width: 1.5),
+                              borderRadius: BorderRadius.circular(10),
+                            )),
                       ),
+                      const SizedBox(height: 20),
 
                       // Sign In Button
                       SizedBox(
@@ -126,7 +163,8 @@ class LoginScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Navbar()),
+                                  builder: (context) =>
+                                      const CustomerHomeScreen()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -138,8 +176,9 @@ class LoginScreen extends StatelessWidget {
                           child: const Padding(
                             padding: EdgeInsets.all(15.0),
                             child: Text(
-                              'Sign In',
-                              style: TextStyle(fontSize: 18,color: Colors.white),
+                              'Sign Up',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
                             ),
                           ),
                         ),
@@ -151,19 +190,19 @@ class LoginScreen extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account?"),
+                          const Text("Already have an account?"),
                           TextButton(
                             onPressed: () {
                               // navigate to sign up
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => FarmerOrCustomer()),
+                                    builder: (context) => LoginScreen()),
                               );
                             },
                             child: const Text(
-                              'Sign Up',
-                              style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),
+                              'Sign In',
+                              style: TextStyle(color: Colors.green),
                             ),
                           ),
                         ],
