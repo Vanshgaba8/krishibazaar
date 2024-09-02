@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Krishi Bazaar'),
-        backgroundColor: Colors.green[700], // Green theme for app
-      ),
-      body: Padding(
+    return SafeArea(
+      child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Welcome Text
             const Text(
               'Welcome back, Farmer!',
               style: TextStyle(
@@ -25,15 +25,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-
-            // Grid of Features
             Expanded(
               child: GridView.count(
-                crossAxisCount: 2, // Two buttons per row
+                crossAxisCount: 2,
                 crossAxisSpacing: 16.0,
                 mainAxisSpacing: 16.0,
                 children: [
-                  // Check Market Rates Button
                   FeatureButton(
                     icon: Icons.trending_up,
                     label: 'Check Market Rates',
@@ -41,7 +38,6 @@ class HomeScreen extends StatelessWidget {
                       // Navigate to market rates page
                     },
                   ),
-                  // Sell Produce Button
                   FeatureButton(
                     icon: Icons.shopping_cart,
                     label: 'Sell Produce',
@@ -49,7 +45,6 @@ class HomeScreen extends StatelessWidget {
                       // Navigate to sell produce page
                     },
                   ),
-                  // Orders Button
                   FeatureButton(
                     icon: Icons.receipt,
                     label: 'View Orders',
@@ -57,7 +52,6 @@ class HomeScreen extends StatelessWidget {
                       // Navigate to orders page
                     },
                   ),
-                  // Profile Button
                   FeatureButton(
                     icon: Icons.person,
                     label: 'My Profile',
@@ -71,31 +65,10 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-
-      // Bottom Navigation Bar
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.green[800],
-        unselectedItemColor: Colors.green[400],
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
     );
   }
 }
 
-// Feature Button Widget
 class FeatureButton extends StatelessWidget {
   final IconData icon;
   final String label;
@@ -142,3 +115,6 @@ class FeatureButton extends StatelessWidget {
     );
   }
 }
+
+
+
