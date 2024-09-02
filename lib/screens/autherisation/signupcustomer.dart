@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/autherisation/login_screen.dart';
+import 'package:krishibazaar/screens/customer_home_screen.dart';
+import 'package:krishibazaar/screens/home_screen.dart';
 
-import 'customer_home_screen.dart';
-import 'home_screen.dart';
+class SignUpCustomer extends StatefulWidget {
+  const SignUpCustomer({super.key});
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+  @override
+  State<SignUpCustomer> createState() => _SignUpCustomerState();
+}
 
+class _SignUpCustomerState extends State<SignUpCustomer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +37,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           const Text(
-                            'Welcome back User',
+                            'Welcome Customer',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
@@ -43,10 +48,26 @@ class LoginScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 30),
 
-                      // Username Field
+                      // name Field
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Username',
+                          labelText: 'Name',
+                          prefixIcon: const Icon(Icons.person),
+                          filled: true,
+                          fillColor: Colors.green[100],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+
+                      //email id Field
+
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Email ID',
                           prefixIcon: const Icon(Icons.person),
                           filled: true,
                           fillColor: Colors.green[100],
@@ -78,21 +99,25 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 20),
 
-                      // Forgot Password
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: TextButton(
-                          onPressed: () {
-                            // forgot password logic
-                          },
-                          child: const Text(
-                            'Forgot Password?',
-                            style: TextStyle(color: Colors.brown),
+                      //phone no. Field
+
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Phone No.',
+                          prefixIcon: const Icon(Icons.person),
+                          filled: true,
+                          fillColor: Colors.green[100],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
                           ),
                         ),
                       ),
+                      const SizedBox(height: 20),
+
+                    
 
                       // Sign In Button
                       SizedBox(
@@ -103,7 +128,7 @@ class LoginScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const HomeScreen()),
+                                  builder: (context) => const CustomerHomeScreen()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -115,32 +140,32 @@ class LoginScreen extends StatelessWidget {
                           child: const Padding(
                             padding: EdgeInsets.all(15.0),
                             child: Text(
-                              'Sign In',
-                              style: TextStyle(fontSize: 18),
+                              'Sign Up',
+                              style:
+                                  TextStyle(fontSize: 18, color: Colors.white),
                             ),
                           ),
                         ),
                       ),
 
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
 
                       // Sign Up
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Don't have an account?"),
+                          const Text("Already have an account?"),
                           TextButton(
                             onPressed: () {
                               // navigate to sign up
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const CustomerHomeScreen()),
+                                    builder: (context) => LoginScreen()),
                               );
                             },
                             child: const Text(
-                              'Sign Up',
+                              'Sign In',
                               style: TextStyle(color: Colors.green),
                             ),
                           ),
