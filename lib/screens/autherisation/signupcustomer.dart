@@ -30,7 +30,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                       // Logo Section
                       Column(
                         children: [
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 50),
                           Image.asset(
                             'assets/images/krishi_logo.png',
                             height: constraints.maxWidth < 600 ? 200 : 250,
@@ -41,7 +41,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
-                              color: Colors.brown,
+                              color: Color(0xFF5D4037),
                             ),
                           ),
                         ],
@@ -55,10 +55,20 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           prefixIcon: const Icon(Icons.person),
                           filled: true,
                           fillColor: Colors.green[100],
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
+                         enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.brown, width: 2),
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 101, 67, 33),
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                width: 1.5),
+                            borderRadius: BorderRadius.circular(10),
+                          )
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -68,13 +78,23 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Email ID',
-                          prefixIcon: const Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.mail),
                           filled: true,
                           fillColor: Colors.green[100],
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.brown, width: 2),
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 101, 67, 33),
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                width: 1.5),
+                            borderRadius: BorderRadius.circular(10),
+                          )
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -87,9 +107,19 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           prefixIcon: const Icon(Icons.lock),
                           filled: true,
                           fillColor: Colors.green[100],
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.brown, width: 2),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 101, 67, 33),
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                width: 1.5),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           suffixIcon: IconButton(
                             icon: const Icon(Icons.visibility),
@@ -106,13 +136,23 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                       TextField(
                         decoration: InputDecoration(
                           labelText: 'Phone No.',
-                          prefixIcon: const Icon(Icons.person),
+                          prefixIcon: const Icon(Icons.phone),
                           filled: true,
                           fillColor: Colors.green[100],
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
-                            borderSide: BorderSide.none,
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.brown, width: 2),
+                            borderRadius: BorderRadius.circular(10),
                           ),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 101, 67, 33),
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Color.fromARGB(255, 101, 67, 33),
+                                width: 1.5),
+                            borderRadius: BorderRadius.circular(10),
+                          )
                         ),
                       ),
                       const SizedBox(height: 20),
@@ -132,7 +172,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.brown[400],
+                            backgroundColor: Colors.brown[600],
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30),
                             ),
