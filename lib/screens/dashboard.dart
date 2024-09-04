@@ -21,7 +21,7 @@ class DashboardScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Hello, Paras",
+                "Hello, Mayank",
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,

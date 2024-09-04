@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
 import 'package:krishibazaar/screens/navbar.dart';
+import 'package:krishibazaar/screens/language_screen.dart';
 
 import '../customer_home_screen.dart';
 import '../farmer_home_screen.dart';
@@ -11,6 +12,28 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFFF8D8),
+        actions: [
+          IconButton(
+            padding: EdgeInsets.only(right: 10),
+            icon: const Icon(
+              Icons.language,
+              color: Colors.brown,
+              size: 30,
+            ), // Updated with language icon
+            onPressed: () {
+              // Navigate to the language selection page
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LanguageSelectionPage(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -27,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                       // Logo Section
                       Column(
                         children: [
-                          const SizedBox(height: 50),
+                          // const SizedBox(height: 5),
                           Image.asset(
                             'assets/images/krishi_logo.png',
                             height: constraints.maxWidth < 600 ? 200 : 250,
@@ -48,24 +71,25 @@ class LoginScreen extends StatelessWidget {
                       // Username Field
                       TextField(
                         decoration: InputDecoration(
-                            labelText: 'Username',
-                            prefixIcon: const Icon(Icons.person),
-                            filled: true,
-                            fillColor: Colors.green[100],
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Colors.brown, width: 2),
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            floatingLabelStyle: const TextStyle(
+                          labelText: 'Username',
+                          prefixIcon: const Icon(Icons.person),
+                          filled: true,
+                          fillColor: Colors.green[100],
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                const BorderSide(color: Colors.brown, width: 2),
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          floatingLabelStyle: const TextStyle(
+                              color: Color.fromARGB(255, 101, 67, 33),
+                              fontSize: 18),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
                                 color: Color.fromARGB(255, 101, 67, 33),
-                                fontSize: 18),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 101, 67, 33),
-                                  width: 1.5),
-                              borderRadius: BorderRadius.circular(10),
-                            )),
+                                width: 1.5),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 20),
 
@@ -99,7 +123,6 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      //const SizedBox(height: 10),
 
                       // Forgot Password
                       Align(
