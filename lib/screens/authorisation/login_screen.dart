@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
-import 'package:krishibazaar/screens/navbar.dart';
-import 'package:krishibazaar/screens/language_screen.dart';
+import 'package:krishibazaar/screens/Farmer/navbar.dart';
+import 'package:krishibazaar/screens/authorisation/language_screen.dart';
 
-import '../customer_home_screen.dart';
-import '../farmer_home_screen.dart';
+import '../Customer/Customhome.dart';
+import '../Farmer/farmer_home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});

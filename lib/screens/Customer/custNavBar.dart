@@ -1,22 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:krishibazaar/screens/dashboard.dart';
-import 'package:krishibazaar/screens/farmer_home_screen.dart';
-import 'package:krishibazaar/screens/notificationscreen.dart';
 
-class Navbar extends StatefulWidget {
-  const Navbar({super.key});
+import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/Customer/CustDash.dart';
+import 'package:krishibazaar/screens/Customer/Customhome.dart';
+import 'package:krishibazaar/screens/Customer/custNoti.dart';
+
+class CustomerNavbar extends StatefulWidget {
+  const CustomerNavbar({super.key});
 
   @override
-  State<Navbar> createState() => _NavbarState();
+  State<CustomerNavbar> createState() => _CustomerNavbarState();
 }
 
-class _NavbarState extends State<Navbar> {
+class _CustomerNavbarState extends State<CustomerNavbar> {
   int index = 0;
 
   final List<Widget> screens = [
-    HomeScreen(),
-    NotificationScreen(),
-    DashboardScreen(),
+    CustomerHomeScreen(),
+    CustomerNotificationScreen(),
+    Customerdashboard(),
   ];
 
   @override
