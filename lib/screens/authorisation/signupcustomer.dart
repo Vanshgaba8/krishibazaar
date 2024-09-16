@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/Customer/custNavBar.dart';
 import 'package:krishibazaar/screens/authorisation/login_screen.dart';
-import 'package:krishibazaar/screens/customer_home_screen.dart';
-import 'package:krishibazaar/screens/farmer_home_screen.dart';
+import 'package:krishibazaar/screens/Customer/Customhome.dart';
+import 'package:krishibazaar/screens/Farmer/farmer_home_screen.dart';
 
 class SignUpCustomer extends StatefulWidget {
   const SignUpCustomer({super.key});
@@ -164,7 +165,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const CustomerHomeScreen()),
+                                      const CustomerNavbar()),
                             );
                           },
                           style: ElevatedButton.styleFrom(
