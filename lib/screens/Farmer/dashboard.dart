@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 class DashboardScreen extends StatelessWidget {
   final List<Map<String, dynamic>> options = [
     {'icon': Icons.history, 'label': 'Past Orders'},
-    {'icon': Icons.report_problem, 'label': 'Complaints'},
+    {'icon': Icons.feedback, 'label': 'Feedback'},
     {'icon': Icons.local_shipping, 'label': 'Track Order'},
-    {'icon': Icons.analytics, 'label': 'Profit Analytics'},
-    {'icon': Icons.shopping_cart, 'label': 'Current Orders'},
     {'icon': Icons.settings, 'label': 'Settings'},
   ];
 

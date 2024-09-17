@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class Customerdashboard extends StatelessWidget {
   final List<Map<String, dynamic>> options = [
     {'icon': Icons.history, 'label': 'Past Orders'},
-    {'icon': Icons.feedback, 'label': 'Feedback'},
+    {'icon': Icons.rate_review, 'label': 'My Reviews'},
     {'icon': Icons.local_shipping, 'label': 'Track Order'},
-   // {'icon': Icons.analytics, 'label': 'Price tracker'},
-   // {'icon': Icons.shopping_cart, 'label': 'Current Orders'},
+    // {'icon': Icons.analytics, 'label': 'Price tracker'},
+    // {'icon': Icons.shopping_cart, 'label': 'Current Orders'},
     {'icon': Icons.settings, 'label': 'Settings'},
   ];
 
