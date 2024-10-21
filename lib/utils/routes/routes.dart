@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/Farmer/farmer_home_screen.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 
+import '../../screens/Customer/Customhome.dart';
+
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -18,13 +20,15 @@ class Routes {
         }
       default:
         {
-          return MaterialPageRoute(builder: (_){
-            return Scaffold(
-              body: Center(
-                child: Text("No Routes defined"),
-              ),
-            );
-          })
+          return MaterialPageRoute(
+            builder: (_) {
+              return const Scaffold(
+                body: Center(
+                  child: Text("No Routes defined"),
+                ),
+              );
+            },
+          );
         }
     }
   }
