@@ -4,6 +4,7 @@ import 'package:krishibazaar/screens/Farmer/navbar.dart';
 import 'package:krishibazaar/screens/authorisation/language_screen.dart';
 
 import '../Customer/Customhome.dart';
+import '../Customer/custNavBar.dart';
 import '../Farmer/farmer_home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -145,10 +146,10 @@ class LoginScreen extends StatelessWidget {
                           onPressed: () {
                             // sign in logic
                             Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Navbar()),
-                            );
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => CustomerNavbar(),
+                                ));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.brown[600],

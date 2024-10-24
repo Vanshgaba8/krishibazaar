@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/Customer/view_cart.dart';
+
+import 'browse_products.dart';
 
 class CustomerHomeScreen extends StatelessWidget {
   const CustomerHomeScreen({super.key});
@@ -6,7 +9,6 @@ class CustomerHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -36,6 +38,12 @@ class CustomerHomeScreen extends StatelessWidget {
                     label: 'Browse Products',
                     onPressed: () {
                       // Navigate to product list page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductListPage(),
+                        ),
+                      );
                     },
                   ),
                   // View Cart Button
@@ -44,6 +52,12 @@ class CustomerHomeScreen extends StatelessWidget {
                     label: 'View Cart',
                     onPressed: () {
                       // Navigate to cart page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewCartPage(),
+                        ),
+                      );
                     },
                   ),
                   // Orders Button
@@ -68,8 +82,6 @@ class CustomerHomeScreen extends StatelessWidget {
           ],
         ),
       ),
-
-      
     );
   }
 }

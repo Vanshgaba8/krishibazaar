@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/authorisation/login_screen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:krishibazaar/screens/Customer/custNavBar.dart';
-import 'package:krishibazaar/screens/authorisation/login_screen.dart';
 
 class SignUpCustomer extends StatefulWidget {
   const SignUpCustomer({super.key});
@@ -12,100 +11,95 @@ class SignUpCustomer extends StatefulWidget {
 }
 
 class _SignUpCustomerState extends State<SignUpCustomer> {
-  // Controllers for form fields
+  final _formKey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
-  // Form key to validate form fields
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
-  // Function to sign up user
+  // Sign-up method
   Future<void> _signUp() async {
     if (_formKey.currentState!.validate()) {
-      const String baseUrl =
-          'https://backend-krishibazaar.onrender.com/api/v1/user/register';
-
-      final String name = _nameController.text;
-      final String email = _emailController.text;
-      final String password = _passwordController.text;
-      final String phone = _phoneController.text;
-
-      // Create the body of the request
-      Map<String, String> body = {
-        'name': name,
-        'email': email,
-        'password': password,
-        'phone': phone,
-        'role': 'user', // Setting role as customer
-      };
-
+      final url = Uri.parse(
+          'https://backend-krishibazaar.onrender.com/api/v1/user/register');
       try {
-        // Sending POST request to the backend
-        final http.Response response = await http.post(
-          Uri.parse(baseUrl),
-          headers: <String, String>{
-            'Content-Type': 'application/json; charset=UTF-8',
-          },
-          body: jsonEncode(body),
+        final response = await http.post(
+          url,
+          headers: {'Content-Type': 'application/json'},
+          body: jsonEncode({
+            'name': _nameController.text,
+            'email': _emailController.text,
+            'password': _passwordController.text,
+            'phone': _phoneController.text,
+            'role': 'user', // Default role set to user
+          }),
         );
 
-        if (response.statusCode == 200 || response.statusCode == 201) {
+        if (response.statusCode == 200) {
           // Show dialog for email verification
-          _showEmailVerificationDialog();
-        } else {
-          _showErrorDialog('Failed to sign up. Please try again.');
-        }
-      } catch (error) {
-        _showErrorDialog(
-            'An error occurred. Please check your internet connection.');
-      }
-    }
-  }
-
-  // Function to show error messages in a dialog
-  void _showErrorDialog(String message) {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Sign Up Error'),
-        content: Text(message),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () {
-              Navigator.of(ctx).pop();
-            },
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Function to show email verification dialog
-  void _showEmailVerificationDialog() {
-    showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: const Text('Verify your email'),
-        content: const Text(
-            'A verification link has been sent to your email. Please verify your email to proceed.'),
-        actions: <Widget>[
-          TextButton(
-            child: const Text('OK'),
-            onPressed: () {
-              Navigator.of(ctx).pop(); // Close dialog
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginScreen()),
-                (Route<dynamic> route) => false, // Navigating back to login
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Email Verification'),
+                content: const Text(
+                    'A verification link has been sent to your email. Please verify to continue.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close dialog
+                      Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        (route) => false,
+                      );
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
               );
             },
-          ),
-        ],
-      ),
-    );
+          );
+        } else {
+          // Show error dialog
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('Sign Up Failed'),
+                content: const Text('Something went wrong. Please try again.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop(); // Close dialog
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      } catch (e) {
+        // Handle any other errors
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: const Text('Error'),
+              content: const Text('An error occurred. Please try again later.'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(); // Close dialog
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
   }
 
   @override
@@ -160,15 +154,6 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                                   color: Colors.brown, width: 2),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            floatingLabelStyle: const TextStyle(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                fontSize: 18),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 101, 67, 33),
-                                  width: 1.5),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -190,15 +175,6 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             enabledBorder: OutlineInputBorder(
                               borderSide: const BorderSide(
                                   color: Colors.brown, width: 2),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            floatingLabelStyle: const TextStyle(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                fontSize: 18),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 101, 67, 33),
-                                  width: 1.5),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
@@ -225,15 +201,6 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                                   color: Colors.brown, width: 2),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            floatingLabelStyle: const TextStyle(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                fontSize: 18),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 101, 67, 33),
-                                  width: 1.5),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
                           ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -247,6 +214,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                         // Phone Field
                         TextFormField(
                           controller: _phoneController,
+                          keyboardType: TextInputType.number,
                           decoration: InputDecoration(
                             labelText: 'Phone No.',
                             prefixIcon: const Icon(Icons.phone),
@@ -257,69 +225,55 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                                   color: Colors.brown, width: 2),
                               borderRadius: BorderRadius.circular(10),
                             ),
-                            floatingLabelStyle: const TextStyle(
-                                color: Color.fromARGB(255, 101, 67, 33),
-                                fontSize: 18),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                  color: Color.fromARGB(255, 101, 67, 33),
-                                  width: 1.5),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
                           ),
-                          keyboardType: TextInputType.phone,
                           validator: (value) {
-                            if (value == null ||
-                                value.isEmpty ||
-                                value.length != 10 ||
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your phone number';
+                            } else if (value.length != 10 ||
                                 !RegExp(r'^[0-9]+$').hasMatch(value)) {
                               return 'Please enter a valid 10-digit phone number';
                             }
                             return null;
                           },
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
 
                         // Sign Up Button
-                        ElevatedButton(
-                          onPressed: _signUp,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF5D4037),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: _signUp,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.brown[600],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
                             ),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 120, vertical: 15),
-                          ),
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
+                            child: const Padding(
+                              padding: EdgeInsets.all(15.0),
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                    fontSize: 18, color: Colors.white),
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 15),
+                        const SizedBox(height: 10),
 
-                        // Login Page Navigation
+                        // Sign In Navigation
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('Already have an account?'),
+                            const Text("Already have an account?"),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const LoginScreen(),
-                                  ),
-                                );
+                                Navigator.popUntil(
+                                    context, (route) => route.isFirst);
                               },
                               child: const Text(
                                 'Sign In',
-                                style: TextStyle(
-                                  color: Colors.green,
-                                ),
+                                style: TextStyle(color: Colors.green),
                               ),
                             ),
                           ],
