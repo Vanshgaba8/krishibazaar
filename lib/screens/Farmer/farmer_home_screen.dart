@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/Farmer/market_rate.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,6 +37,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: 'Check Market Rates',
                     onPressed: () {
                       // Navigate to market rates page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MarketDataPage(),
+                        ),
+                      );
                     },
                   ),
                   FeatureButton(
@@ -115,6 +122,3 @@ class FeatureButton extends StatelessWidget {
     );
   }
 }
-
-
-
