@@ -15,6 +15,8 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
   // Sign-up method
@@ -36,67 +38,35 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
         );
 
         if (response.statusCode == 200) {
-          // Show dialog for email verification
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text('Email Verification'),
-                content: const Text(
-                    'A verification link has been sent to your email. Please verify to continue.'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Close dialog
-                      Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
-                        (route) => false,
-                      );
-                    },
-                    child: const Text('OK'),
-                  ),
-                ],
-              );
-            },
+          // Show Snackbar for success
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Sign up successful! Please verify your email.'),
+              duration: Duration(seconds: 2),
+            ),
+          );
+
+          // Navigate to Login screen
+          Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => LoginScreen()),
+            (route) => false,
           );
         } else {
-          // Show error dialog
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text('Sign Up Failed'),
-                content: const Text('Something went wrong. Please try again.'),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop(); // Close dialog
-                    },
-                    child: const Text('OK'),
-                  ),
-                ],
-              );
-            },
+          // Show Snackbar for error
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Sign Up Failed. Please try again.'),
+              duration: Duration(seconds: 2),
+            ),
           );
         }
       } catch (e) {
         // Handle any other errors
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: const Text('Error'),
-              content: const Text('An error occurred. Please try again later.'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop(); // Close dialog
-                  },
-                  child: const Text('OK'),
-                ),
-              ],
-            );
-          },
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('An error occurred. Please try again later.'),
+            duration: Duration(seconds: 2),
+          ),
         );
       }
     }
@@ -205,6 +175,32 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter your password';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 20),
+
+                        // Confirm Password Field
+                        TextFormField(
+                          controller: _confirmPasswordController,
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            labelText: 'Confirm Password',
+                            prefixIcon: const Icon(Icons.lock),
+                            filled: true,
+                            fillColor: Colors.green[100],
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Colors.brown, width: 2),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please confirm your password';
+                            } else if (value != _passwordController.text) {
+                              return 'Passwords do not match';
                             }
                             return null;
                           },

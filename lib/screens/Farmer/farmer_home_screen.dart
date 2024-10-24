@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/Farmer/market_rate.dart';
+import 'package:krishibazaar/screens/Farmer/sell_produce.dart';
+import 'package:krishibazaar/screens/Farmer/view_order.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -50,6 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: 'Sell Produce',
                     onPressed: () {
                       // Navigate to sell produce page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SellProducePage(),
+                        ),
+                      );
                     },
                   ),
                   FeatureButton(
@@ -57,6 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: 'View Orders',
                     onPressed: () {
                       // Navigate to orders page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewOrdersPage(),
+                        ),
+                      );
                     },
                   ),
                   FeatureButton(
