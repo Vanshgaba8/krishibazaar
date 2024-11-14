@@ -128,7 +128,7 @@ class _MarketDataPageState extends State<MarketDataPage> {
                               color: Colors.green[100],
                               child: ListTile(
                                 title: Text(
-                                    '${item['commodity']} - ₹${item['modal_price']}/quintal'),
+                                    '${item['commodity']} - ₹${item['max_price']}/quintal'),
                                 subtitle: Text(
                                     'Market: ${item['market']}\nDate: ${item['arrival_date']}'),
                               ),

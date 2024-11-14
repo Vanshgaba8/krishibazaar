@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 class SellProducePage extends StatefulWidget {
   const SellProducePage({super.key});
@@ -12,10 +14,25 @@ class _SellProducePageState extends State<SellProducePage> {
   final TextEditingController _quantityController = TextEditingController();
   final TextEditingController _priceController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+  final ImagePicker _picker = ImagePicker();
 
+  File? _image;
   String _selectedCategory = 'Fruits'; // Default category
   bool _isLoading = false;
   String? _errorMessage;
+
+  Future<void> _pickImage() async {
+    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('No image selected')),
+      );
+    }
+  }
 
   Future<void> _submitForm() async {
     setState(() {
@@ -38,9 +55,10 @@ class _SellProducePageState extends State<SellProducePage> {
         quantity.isEmpty ||
         price.isEmpty ||
         description.isEmpty ||
-        category.isEmpty) {
+        category.isEmpty ||
+        _image == null) {
       setState(() {
-        _errorMessage = 'Please fill all fields';
+        _errorMessage = 'Please fill all fields and upload an image';
         _isLoading = false;
       });
       return;
@@ -54,13 +72,11 @@ class _SellProducePageState extends State<SellProducePage> {
     _descriptionController.clear();
     setState(() {
       _selectedCategory = 'Fruits'; // Reset category after submission
-    });
-
-    setState(() {
+      _image = null; // Clear the selected image
       _isLoading = false;
     });
 
-    // Show a success message (you could use a SnackBar instead)
+    // Show a success message
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -150,18 +166,27 @@ class _SellProducePageState extends State<SellProducePage> {
                 },
               ),
               const SizedBox(height: 20),
+
+              // Image upload section
+              _image != null
+                  ? Image.file(_image!, height: 150)
+                  : Text("No image selected"),
+              ElevatedButton(
+                onPressed: _pickImage,
+                child: const Text("Upload Product Image"),
+              ),
+
+              const SizedBox(height: 20),
               _isLoading
                   ? const CircularProgressIndicator()
                   : ElevatedButton(
                       onPressed: _submitForm,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            Colors.green, // Button background color
+                        backgroundColor: Colors.green,
                       ),
                       child: const Text(
                         'List Produce',
-                        style:
-                            TextStyle(color: Colors.white), // Button text color
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
               const SizedBox(height: 20),

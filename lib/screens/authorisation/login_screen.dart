@@ -72,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                       // Username Field
                       TextField(
                         decoration: InputDecoration(
-                          labelText: 'Username',
+                          labelText: 'Email ID',
                           prefixIcon: const Icon(Icons.person),
                           filled: true,
                           fillColor: Colors.green[100],
