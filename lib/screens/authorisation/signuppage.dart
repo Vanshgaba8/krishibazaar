@@ -320,6 +320,5 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
         },
       ),
     );
-    ;
   }
 }
