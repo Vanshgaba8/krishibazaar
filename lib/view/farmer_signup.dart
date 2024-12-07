@@ -5,6 +5,7 @@ import '../res/components/generic_text_field.dart';
 import '../res/components/round_button.dart';
 import '../screens/authorisation/login_screen.dart';
 import '../screens/Farmer/navbar.dart';
+import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -406,13 +407,7 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
                             const Text("Already have an account? "),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginScreen(), // Replace with your Login Screen
-                                  ),
-                                );
+                                Navigator.pushNamed(context, RoutesName.login);
                               },
                               child: const Text(
                                 "Login",

@@ -38,6 +38,10 @@ class _LoginScreenState extends State<LoginScreen> {
     final authViewModel = Provider.of<AuthViewModel>(context);
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFFFFF8D8),
+          automaticallyImplyLeading: false,
+        ),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
@@ -54,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         // Logo Section
                         Column(
                           children: [
-                            const SizedBox(height: 50),
+                            const SizedBox(height: 10),
                             Image.asset(
                               'assets/images/krishi_logo.png',
                               height: constraints.maxWidth < 600 ? 200 : 250,

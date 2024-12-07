@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:krishibazaar/res/color.dart';
+
 class MarketDataPage extends StatefulWidget {
   const MarketDataPage({super.key});
 
@@ -65,9 +67,9 @@ class _MarketDataPageState extends State<MarketDataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF8D8),
+      backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFFF8D8),
+        backgroundColor: AppColors.whiteColor,
         title: const Text(
           'Market Rates',
           style: TextStyle(color: Colors.brown),

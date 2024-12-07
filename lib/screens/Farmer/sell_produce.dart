@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:krishibazaar/res/color.dart';
+
 class SellProducePage extends StatefulWidget {
   const SellProducePage({super.key});
 
@@ -97,9 +99,9 @@ class _SellProducePageState extends State<SellProducePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFF8D8),
+      backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFFF8D8),
+        backgroundColor: Colors.white,
         title: const Text(
           'Sell Your Produce',
           style: TextStyle(color: Colors.brown),

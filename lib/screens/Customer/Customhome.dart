@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/res/color.dart';
 import 'package:krishibazaar/screens/Customer/view_cart.dart';
 
 import 'browse_products.dart';
@@ -9,6 +10,7 @@ class CustomerHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

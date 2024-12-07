@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../res/color.dart';
+
 class CartItem {
   final String name;
   final double price;
@@ -47,9 +49,10 @@ class _ViewCartPageState extends State<ViewCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
         title: const Text('View Cart'),
-        backgroundColor: const Color(0xFFFFF8D8), // Consistent color with theme
+        backgroundColor: Colors.white, // Consistent color with theme
       ),
       body: Column(
         children: [

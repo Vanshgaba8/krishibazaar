@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/screens/Customer/browse_products.dart';
 import 'package:krishibazaar/screens/Farmer/farmer_home_screen.dart';
+import 'package:krishibazaar/screens/Farmer/navbar.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 import 'package:krishibazaar/view/customer_signup.dart';
 import 'package:krishibazaar/view/farmer_signup.dart';
+import 'package:krishibazaar/view/splash_view.dart';
 
 import '../../screens/Customer/Customhome.dart';
 import 'package:krishibazaar/view/login_view.dart';
@@ -14,10 +17,14 @@ import 'package:krishibazaar/view/farmer_or_customer.dart';
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case RoutesName.FarmerHome:
+      case RoutesName.splash:
         {
           return MaterialPageRoute(
-              builder: (BuildContext context) => HomeScreen());
+              builder: (BuildContext context) => SplashView());
+        }
+      case RoutesName.FarmerHome:
+        {
+          return MaterialPageRoute(builder: (BuildContext context) => Navbar());
         }
       case RoutesName.CustomerHome:
         {
@@ -43,6 +50,11 @@ class Routes {
         {
           return MaterialPageRoute(
               builder: (BuildContext context) => SignUpCustomer());
+        }
+      case RoutesName.ProductView:
+        {
+          return MaterialPageRoute(
+              builder: (BuildContext context) => ProductListPage());
         }
       default:
         {

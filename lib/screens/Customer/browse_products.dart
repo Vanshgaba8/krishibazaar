@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/res/color.dart';
 import 'package:krishibazaar/screens/Customer/product_detail_page.dart';
 import '../../data/product_data.dart';
 import '../../models/customer_product_model.dart';
@@ -16,6 +17,7 @@ class _ProductListPageState extends State<ProductListPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
         appBar: AppBar(
           leading: IconButton(
             icon:

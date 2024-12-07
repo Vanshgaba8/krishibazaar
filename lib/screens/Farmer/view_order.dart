@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:krishibazaar/res/color.dart';
 
 class ViewOrdersPage extends StatelessWidget {
   final List<Map<String, dynamic>> orders = [
@@ -33,10 +34,10 @@ class ViewOrdersPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("View Orders"),
-        backgroundColor: const Color(0xFFFFF8D8),
+        backgroundColor: AppColors.whiteColor,
         iconTheme: const IconThemeData(color: Colors.brown),
       ),
-      backgroundColor: const Color(0xFFFFF8D8), // Light yellow background
+      backgroundColor: AppColors.whiteColor, // Light yellow background
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(

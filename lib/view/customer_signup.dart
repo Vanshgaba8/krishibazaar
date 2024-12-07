@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:krishibazaar/utils/routes/routes_name.dart';
 
 import 'package:provider/provider.dart';
 import '../res/components/generic_text_field.dart';
@@ -272,13 +273,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             const Text("Already have an account? "),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginScreen(), // Replace with your Login Screen
-                                  ),
-                                );
+                                Navigator.pushNamed(context, RoutesName.login);
                               },
                               child: const Text(
                                 "Login",

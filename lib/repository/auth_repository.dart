@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:krishibazaar/data/network/base_api_services.dart';
 import 'package:krishibazaar/data/network/network_api_services.dart';
 import 'package:krishibazaar/res/app_url.dart';
@@ -8,6 +9,7 @@ class AuthRepository {
     try {
       dynamic response =
           await _apiServices.getPostApiResponse(AppUrl.loginEndPoint, data);
+      debugPrint(response.toString());
       return response;
     } catch (e) {
       throw e;
