@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:krishibazaar/screens/Farmer/market_rate.dart';
 import 'package:krishibazaar/screens/Farmer/sell_produce.dart';
 import 'package:krishibazaar/screens/Farmer/view_order.dart';
+import 'package:krishibazaar/utils/routes/routes_name.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -52,12 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     label: 'Sell Produce',
                     onPressed: () {
                       // Navigate to sell produce page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SellProducePage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, RoutesName.SellProduce);
                     },
                   ),
                   FeatureButton(

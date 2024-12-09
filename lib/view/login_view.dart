@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/res/components/round_button.dart';
-import 'package:krishibazaar/screens/authorisation/farmorcust.dart';
 import 'package:provider/provider.dart';
 
-import '../screens/Farmer/navbar.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
 import '../view_model/auth_view_model.dart';
@@ -42,6 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
           backgroundColor: Color(0xFFFFF8D8),
           automaticallyImplyLeading: false,
         ),
+        backgroundColor: Color(0xFFFFF8D8),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(

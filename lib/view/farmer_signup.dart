@@ -3,8 +3,6 @@ import 'package:file_picker/file_picker.dart';
 import 'package:provider/provider.dart';
 import '../res/components/generic_text_field.dart';
 import '../res/components/round_button.dart';
-import '../screens/authorisation/login_screen.dart';
-import '../screens/Farmer/navbar.dart';
 import '../utils/routes/routes_name.dart';
 import '../utils/utils.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -112,6 +110,7 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
     final authViewModel = Provider.of<AuthViewModel>(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFFFFF8D8),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
@@ -330,7 +329,7 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
                               color: Colors.yellow[100],
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(
-                                  color: Color(0xFFf29716), width: 2.0),
+                                  color: const Color(0xFFf29716), width: 2.0),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -407,7 +406,8 @@ class _SignUpFarmerState extends State<SignUpFarmer> {
                             const Text("Already have an account? "),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context, RoutesName.login);
+                                Navigator.pushReplacementNamed(
+                                    context, RoutesName.login);
                               },
                               child: const Text(
                                 "Login",

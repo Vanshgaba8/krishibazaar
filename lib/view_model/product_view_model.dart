@@ -1,36 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:krishibazaar/models/product_model.dart';
-import 'package:krishibazaar/data/network/network_api_services.dart';
-import 'package:krishibazaar/utils/utils.dart';
-import '../res/app_url.dart';
+import '../repository/product_repository.dart';
+import '../models/product_model.dart';
 
 class ProductViewModel extends ChangeNotifier {
-  final NetworkApiService _apiService = NetworkApiService();
-  List<ProductModel> _products = [];
+  final ProductRepository _productRepository;
+
+  ProductViewModel()
+      : _productRepository = ProductRepository(); // No baseUrl required here
+
   bool _isLoading = false;
   String? _errorMessage;
+  ProductModel? _productModel;
 
-  List<ProductModel> get products => _products;
+  // Getters
   bool get isLoading => _isLoading;
   String? get errorMessage => _errorMessage;
+  ProductModel? get productModel => _productModel;
 
-  Future<void> fetchProducts() async {
+  // Fetch product data from the repository
+  Future<void> fetchProducts(BuildContext context) async {
     _isLoading = true;
-    _errorMessage = null; // Reset previous errors
+    _errorMessage = null;
     notifyListeners();
 
     try {
-      final response =
-          await _apiService.getGetApiResponse(AppUrl.viewProductList);
-      if (response != null) {
-        _products = List<ProductModel>.from(
-            response.map((product) => ProductModel.fromJson(product)));
-        _errorMessage = null;
-        notifyListeners();
-      }
-    } catch (e) {
-      _errorMessage = e.toString();
-      notifyListeners();
+      final fetchedProducts = await _productRepository.fetchProducts(context);
+      _productModel = fetchedProducts;
+    } catch (error) {
+      _errorMessage = error.toString();
     } finally {
       _isLoading = false;
       notifyListeners();

@@ -55,4 +55,52 @@ class NetworkApiService extends BaseApiServices {
         );
     }
   }
+
+  @override
+  Future<dynamic> postWithBearerToken(
+      String url, dynamic data, String token) async {
+    dynamic responseJson;
+    try {
+      if (data is Map<String, dynamic> && data.containsKey('file')) {
+        // Handling file upload
+        var request = http.MultipartRequest('POST', Uri.parse(url));
+        request.headers['Authorization'] = 'Bearer $token';
+
+        // Add form fields
+        data.forEach((key, value) {
+          if (key != 'file') {
+            request.fields[key] = value.toString();
+          }
+        });
+
+        // Add file if it exists
+        if (data['file'] != null) {
+          request.files.add(
+              await http.MultipartFile.fromPath('file', data['file'].path));
+        }
+
+        final streamedResponse = await request.send();
+        final response = await http.Response.fromStream(streamedResponse);
+        responseJson = returnResponse(response);
+      } else {
+        // Regular POST request (JSON payload)
+        final headers = {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        };
+
+        final response = await http
+            .post(
+              Uri.parse(url),
+              headers: headers,
+              body: json.encode(data),
+            )
+            .timeout(Duration(seconds: 20));
+        responseJson = returnResponse(response);
+      }
+    } on SocketException {
+      throw FetchDataException("No Internet Connection");
+    }
+    return responseJson;
+  }
 }

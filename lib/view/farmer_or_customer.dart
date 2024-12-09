@@ -15,6 +15,7 @@ class FarmerOrCustomer extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Color(0xFFFFF8D8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFF8D8),
         title: const Text(

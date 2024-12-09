@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:krishibazaar/res/color.dart';
 import 'package:krishibazaar/screens/Customer/view_cart.dart';
+import 'package:krishibazaar/utils/routes/routes_name.dart';
 
 import 'browse_products.dart';
 
@@ -40,12 +41,7 @@ class CustomerHomeScreen extends StatelessWidget {
                     label: 'Browse Products',
                     onPressed: () {
                       // Navigate to product list page
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ProductListPage(),
-                        ),
-                      );
+                      Navigator.pushNamed(context, RoutesName.productView);
                     },
                   ),
                   // View Cart Button

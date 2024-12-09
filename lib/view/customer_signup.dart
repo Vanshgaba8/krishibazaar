@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 
 import 'package:provider/provider.dart';
 import '../res/components/generic_text_field.dart';
 import '../res/components/round_button.dart';
-import '../screens/authorisation/login_screen.dart';
-import '../screens/Farmer/navbar.dart';
 import '../utils/utils.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../view_model/auth_view_model.dart';
 
@@ -34,6 +30,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
   // Focus Nodes
@@ -41,6 +38,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
   final FocusNode _emailFocusNode = FocusNode();
   final FocusNode _passwordFocusNode = FocusNode();
   final FocusNode _confirmPasswordFocusNode = FocusNode();
+  final FocusNode _addressFocusNode = FocusNode();
   final FocusNode _phoneFocusNode = FocusNode();
 
   // File Picker variable
@@ -52,12 +50,14 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     _phoneController.dispose();
+    _addressController.dispose();
 
     _nameFocusNode.dispose();
     _emailFocusNode.dispose();
     _passwordFocusNode.dispose();
     _confirmPasswordFocusNode.dispose();
     _phoneFocusNode.dispose();
+    _addressFocusNode.dispose();
 
     _obscureValue.dispose();
 
@@ -69,6 +69,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
     final authViewModel = Provider.of<AuthViewModel>(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: const Color(0xFFFFF8D8),
         body: LayoutBuilder(
           builder: (context, constraints) {
             return SingleChildScrollView(
@@ -211,12 +212,13 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             );
                           },
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 15),
 
                         // Phone Number Field
                         GenericTextField(
                           controller: _phoneController,
                           focusNode: _phoneFocusNode,
+                          nextFocusNode: _addressFocusNode,
                           labelText: "Phone No.",
                           prefixIcon: const Icon(Icons.phone),
                           keyboardType: TextInputType.phone,
@@ -224,6 +226,13 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                         const SizedBox(height: 15),
 
                         // Address Field
+                        GenericTextField(
+                          controller: _addressController,
+                          focusNode: _addressFocusNode,
+                          labelText: "Address",
+                          prefixIcon: const Icon(Icons.location_city),
+                        ),
+                        const SizedBox(height: 15),
 
                         // Sign Up Button
                         RoundButton(
@@ -247,6 +256,9 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             } else if (_phoneController.text.isEmpty) {
                               Utils.showErrorMessage(
                                   'Phone number is required', context);
+                            } else if (_addressController.text.isEmpty) {
+                              Utils.showErrorMessage(
+                                  'Address is required', context);
                             } else if (_passwordController.text.length < 6) {
                               Utils.showErrorMessage(
                                   'Length of password must be greater than 6',
@@ -257,6 +269,7 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                                 "email": _emailController.text,
                                 "password": _passwordController.text,
                                 "phone": _phoneController.text,
+                                "address": _addressController.text,
                                 "role": 'user',
                               };
                               authViewModel.registerApi(data, context);
@@ -273,7 +286,8 @@ class _SignUpCustomerState extends State<SignUpCustomer> {
                             const Text("Already have an account? "),
                             GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context, RoutesName.login);
+                                Navigator.pushReplacementNamed(
+                                    context, RoutesName.login);
                               },
                               child: const Text(
                                 "Login",
