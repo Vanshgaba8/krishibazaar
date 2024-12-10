@@ -4,4 +4,6 @@ abstract class BaseApiServices {
   Future<dynamic> getPostApiResponse(String url, dynamic data);
 
   Future<dynamic> postWithBearerToken(String url, dynamic data, String token);
+
+  Future<dynamic> getWithBearerToken(String url, String token);
 }

@@ -5,6 +5,7 @@ import 'package:krishibazaar/screens/Customer/Customhome.dart';
 import 'package:krishibazaar/screens/Customer/custNoti.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 import 'package:krishibazaar/utils/utils.dart';
+import 'package:krishibazaar/view/profile_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../view_model/customer_view_model.dart';
@@ -23,7 +24,7 @@ class _CustomerNavbarState extends State<CustomerNavbar> {
   final List<Widget> screens = [
     CustomerHomeScreen(),
     CustomerNotificationScreen(),
-    Customerdashboard(),
+    ProfileView(),
   ];
 
   @override

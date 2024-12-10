@@ -40,19 +40,46 @@ class NetworkApiService extends BaseApiServices {
     return responseJson;
   }
 
+  @override
+  Future<dynamic> getWithBearerToken(String url, String token) async {
+    dynamic responseJson;
+    try {
+      final headers = {
+        'Authorization': 'Bearer $token',
+      };
+
+      final response = await http
+          .get(
+            Uri.parse(url),
+            headers: headers,
+          )
+          .timeout(Duration(seconds: 20));
+
+      responseJson = returnResponse(response);
+    } on SocketException {
+      throw FetchDataException("No Internet Connection");
+    }
+    return responseJson;
+  }
+
   dynamic returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
         return jsonDecode(response.body);
+      case 201:
+        return jsonDecode(response.body);
       case 400:
         throw BadRequestException(response.body.toString());
-      case 500:
-      case 404:
+      case 401:
+      case 403:
         throw UnauthorisedException(response.body.toString());
+      case 404:
+      case 500:
+        throw FetchDataException(
+            "Error occurred with status code ${response.statusCode}");
       default:
         throw FetchDataException(
-          "Error occurred while communicating with server with status code ${response.statusCode}",
-        );
+            "Unexpected error with status code ${response.statusCode}");
     }
   }
 

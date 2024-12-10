@@ -31,6 +31,7 @@ class User {
   String? email;
   String? password;
   String? phone;
+  String? address;
   String? role;
   bool? isVerified;
   String? createdAt;
@@ -42,6 +43,7 @@ class User {
       this.name,
       this.email,
       this.password,
+      this.address,
       this.phone,
       this.role,
       this.isVerified,
@@ -54,6 +56,7 @@ class User {
     name = json['name'];
     email = json['email'];
     password = json['password'];
+    address = json['address'];
     phone = json['phone'];
     role = json['role'];
     isVerified = json['isVerified'];
@@ -68,6 +71,7 @@ class User {
     data['name'] = this.name;
     data['email'] = this.email;
     data['password'] = this.password;
+    data['address'] = this.address;
     data['phone'] = this.phone;
     data['role'] = this.role;
     data['isVerified'] = this.isVerified;

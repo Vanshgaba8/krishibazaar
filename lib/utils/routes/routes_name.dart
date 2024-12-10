@@ -10,4 +10,5 @@ class RoutesName {
   static const String SellProduce = "sell_produce";
   static const String productView = "product_view";
   static const String productDetailView = "product_detail_view";
+  static const String profileView = "profile_view";
 }

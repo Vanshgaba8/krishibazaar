@@ -18,6 +18,7 @@ import '../../screens/Customer/custNavBar.dart';
 import 'package:krishibazaar/view/farmer_or_customer.dart';
 
 import '../../view/product_detail_page.dart';
+import '../../view/profile_view.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -70,6 +71,11 @@ class Routes {
         {
           return MaterialPageRoute(
               builder: (BuildContext context) => ProductView());
+        }
+      case RoutesName.profileView:
+        {
+          return MaterialPageRoute(
+              builder: (BuildContext context) => ProfileView());
         }
       case RoutesName.productDetailView:
         {

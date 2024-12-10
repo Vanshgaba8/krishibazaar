@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:krishibazaar/res/color.dart';
+import 'package:krishibazaar/utils/routes/routes_name.dart';
 import 'package:provider/provider.dart';
 
 import 'package:krishibazaar/utils/utils.dart';
@@ -171,37 +172,34 @@ class _SellProducePageState extends State<SellProducePage> {
                     Utils.showErrorMessage(
                         "Please enter a product name", context);
                     return;
-                  }
-                  if (sellProduceModel.selectedCategory == null) {
+                  } else if (sellProduceModel.selectedCategory == null) {
                     Utils.showErrorMessage("Please select a category", context);
                     return;
-                  }
-                  if (_quantityController.text.isEmpty) {
+                  } else if (_quantityController.text.isEmpty) {
                     Utils.showErrorMessage("Please enter stock", context);
                     return;
-                  }
-                  if (_priceController.text.isEmpty) {
+                  } else if (_priceController.text.isEmpty) {
                     Utils.showErrorMessage("Please enter a price", context);
                     return;
-                  }
-                  if (_descriptionController.text.isEmpty) {
+                  } else if (_descriptionController.text.isEmpty) {
                     Utils.showErrorMessage(
                         "Please enter a description", context);
                     return;
-                  }
-                  if (_selectedImage == null) {
+                  } else if (_selectedImage == null) {
                     Utils.showErrorMessage("Please upload an image", context);
                     return;
+                  } else {
+                    sellProduceModel.addProduct(
+                      _nameController.text,
+                      _quantityController.text,
+                      _priceController.text,
+                      _descriptionController.text,
+                      _selectedImage,
+                      context,
+                    );
+                    Navigator.pushReplacementNamed(
+                        context, RoutesName.FarmerHome);
                   }
-
-                  sellProduceModel.addProduct(
-                    _nameController.text,
-                    _quantityController.text,
-                    _priceController.text,
-                    _descriptionController.text,
-                    _selectedImage,
-                    context,
-                  );
                 },
                 child: const Text("Submit"),
               ),

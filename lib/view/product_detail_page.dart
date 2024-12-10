@@ -4,7 +4,7 @@ import '../models/product_model.dart';
 class ProductDetailView extends StatelessWidget {
   final Products product;
 
-  const ProductDetailView({Key? key, required this.product}) : super(key: key);
+  const ProductDetailView({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +48,11 @@ class ProductDetailView extends StatelessWidget {
                     const SizedBox(height: 8),
                     Text(
                       'Price: ₹${product.price ?? 0}/Kg',
+                      style: const TextStyle(fontSize: 18),
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      'Stock: ${product.stock ?? 0} Kg',
                       style: const TextStyle(fontSize: 18),
                     ),
                     const SizedBox(height: 8),

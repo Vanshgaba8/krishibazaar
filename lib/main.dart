@@ -8,6 +8,7 @@ import 'package:krishibazaar/view_model/customer_view_model.dart';
 import 'package:krishibazaar/view_model/farmer_view_model.dart';
 import 'package:krishibazaar/view_model/particular_product_view_model.dart';
 import 'package:krishibazaar/view_model/product_view_model.dart';
+import 'package:krishibazaar/view_model/profile_view_model.dart';
 import 'package:krishibazaar/view_model/sell_produce_view_model.dart';
 import 'package:provider/provider.dart';
 import 'screens/authorisation/login_screen.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => SellProduceModel()),
         ChangeNotifierProvider(create: (_) => CategoryViewModel()),
         ChangeNotifierProvider(create: (_) => ParticularProductViewModel()),
+        ChangeNotifierProvider(create: (_) => ProfileViewModel()),
       ],
       child: MaterialApp(
         title: 'Krishi Bazaar',

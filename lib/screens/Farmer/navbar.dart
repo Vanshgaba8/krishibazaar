@@ -4,6 +4,7 @@ import 'package:krishibazaar/res/color.dart';
 import 'package:krishibazaar/screens/Farmer/dashboard.dart';
 import 'package:krishibazaar/screens/Farmer/farmer_home_screen.dart';
 import 'package:krishibazaar/screens/Farmer/notificationscreen.dart';
+import 'package:krishibazaar/view/profile_view.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/routes/routes_name.dart';
@@ -24,7 +25,7 @@ class _NavbarState extends State<Navbar> {
   final List<Widget> screens = [
     HomeScreen(),
     NotificationScreen(),
-    DashboardScreen(),
+    ProfileView(),
   ];
 
   @override
