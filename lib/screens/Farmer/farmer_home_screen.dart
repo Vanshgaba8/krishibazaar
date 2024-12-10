@@ -4,6 +4,8 @@ import 'package:krishibazaar/screens/Farmer/sell_produce.dart';
 import 'package:krishibazaar/screens/Farmer/view_order.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 
+import '../Customer/view_cart.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -70,10 +72,24 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   FeatureButton(
-                    icon: Icons.person,
-                    label: 'My Profile',
+                    icon: Icons.shopping_basket,
+                    label: 'Browse Products',
                     onPressed: () {
-                      // Navigate to profile page
+                      // Navigate to product list page
+                      Navigator.pushNamed(context, RoutesName.productView);
+                    },
+                  ),
+                  FeatureButton(
+                    icon: Icons.shopping_cart,
+                    label: 'View Cart',
+                    onPressed: () {
+                      // Navigate to cart page
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ViewCartPage(),
+                        ),
+                      );
                     },
                   ),
                 ],
