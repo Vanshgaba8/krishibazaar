@@ -6,6 +6,7 @@ class AppUrl {
   static var userProfile = '${baseUrl}user/profile';
   static var addProduct = '${baseUrl}product/create';
   static var viewProductList = '${baseUrl}product/get-all';
+  static var viewParticularProduct = "${baseUrl}product/";
   static var addCategory = '${baseUrl}cat/create';
   static var categoryList = '${baseUrl}cat/get-all';
 }
