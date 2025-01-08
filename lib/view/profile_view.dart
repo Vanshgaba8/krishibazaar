@@ -14,8 +14,10 @@ class _ProfileViewState extends State<ProfileView> {
   void initState() {
     super.initState();
     // Fetch profile data when the widget is initialized
-    Provider.of<ProfileViewModel>(context, listen: false)
-        .fetchUserProfile(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<ProfileViewModel>(context, listen: false)
+          .fetchUserProfile(context);
+    });
   }
 
   @override

@@ -6,6 +6,7 @@ import 'package:krishibazaar/screens/Farmer/navbar.dart';
 import 'package:krishibazaar/utils/routes/routes_name.dart';
 import 'package:krishibazaar/view/customer_signup.dart';
 import 'package:krishibazaar/view/farmer_signup.dart';
+import 'package:krishibazaar/view/payment_options_view.dart';
 import 'package:krishibazaar/view/product_view.dart';
 import 'package:krishibazaar/view/sell_produce_view.dart';
 import 'package:krishibazaar/view/splash_view.dart';
@@ -66,6 +67,13 @@ class Routes {
         {
           return MaterialPageRoute(
               builder: (BuildContext context) => SellProducePage());
+        }
+      case RoutesName.payOption:
+        {
+          final totalAmount = settings.arguments as double; // Cast the argument
+          return MaterialPageRoute(
+              builder: (BuildContext context) =>
+                  PaymentOptionsView(totalAmount: totalAmount));
         }
       case RoutesName.productView:
         {

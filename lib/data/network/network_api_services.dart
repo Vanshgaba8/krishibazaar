@@ -64,6 +64,7 @@ class NetworkApiService extends BaseApiServices {
     return responseJson;
   }
 
+  /// Handles the response based on status code
   dynamic returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
@@ -129,6 +130,37 @@ class NetworkApiService extends BaseApiServices {
       }
     } on SocketException {
       throw FetchDataException("No Internet Connection");
+    }
+    return responseJson;
+  }
+
+  /// Regular POST request with Bearer token, no file handling
+  @override
+  Future<dynamic> onlyPostWithBearerToken(
+      String url, dynamic data, String token) async {
+    dynamic responseJson;
+    try {
+      // Set headers including the Bearer token
+      final headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer $token',
+      };
+
+      // Send the POST request
+      final response = await http
+          .post(
+            Uri.parse(url),
+            headers: headers,
+            body: json.encode(data),
+          )
+          .timeout(Duration(seconds: 20)); // Timeout after 20 seconds
+
+      // Return response based on status code
+      responseJson = returnResponse(response);
+    } on SocketException {
+      throw FetchDataException("No Internet Connection");
+    } catch (e) {
+      throw FetchDataException("An unexpected error occurred: $e");
     }
     return responseJson;
   }
