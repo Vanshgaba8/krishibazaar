@@ -1,7 +1,7 @@
 
 # Krishi Bazaar
 
-Krishi Bazaar is a mobile application designed to provide farmers with direct market access. Built using Flutter, it ensures a seamless and efficient platform for buying and selling agricultural produce. The app leverages modern technologies such as MongoDB, WebSocket, Firebase, and Node.js for its backend operations.
+Krishi Bazaar is a mobile application designed to provide farmers with direct market access. Built using Flutter with provider package, it ensures a seamless and efficient platform for buying and selling agricultural produce. The app leverages modern technologies such as MongoDB and Node.js for its backend operations.
 
 ---
 
