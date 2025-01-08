@@ -53,7 +53,24 @@ Ensure a connected device or emulator is available.
   - **`views/`**: UI components and pages.
   - **`viewmodels/`**: Business logic and state management.
 - **`assets/`**: Stores images and static resources.
-- **`backend/`**: Contains Node.js and Firebase configurations.
+- **`backend/`**: Contains Node.js configurations.
+
+---
+## Images
+<div style="display: flex; flex-wrap: wrap;">
+    <img src="https://github.com/user-attachments/assets/5d2ae328-8955-4600-8e45-9d043434e5a2" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/1fdc1d95-916e-47f3-823f-ccf329b8c339" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/4503b502-d107-44e5-a802-7fe78f716981" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/b84eb054-40c8-42ea-a467-c6dad56662af" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/bcac008b-c12f-4264-8d2d-4f51b73572ef" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/1d371806-fac5-4c4f-a51f-9b23d1830268" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/2d869e94-a782-4122-a735-f16de4c48e26" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/da3e843b-e040-47c5-b8f1-6b5ab7107267" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/5c2d58ec-7bb3-4a80-9650-25d3771b599b" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/6ed3ff60-0eb4-418c-8012-776d7abac81d" width="45%" style="margin: 5px;" />
+    <img src="https://github.com/user-attachments/assets/63c4ba46-6a31-4ff6-986b-a87b74ceb404" width="45%" style="margin: 5px;" />
+</div>
+
 
 ---
 
