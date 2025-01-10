@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:krishibazaar/.env.dart';
 import 'package:krishibazaar/res/color.dart';
 
 class MarketDataPage extends StatefulWidget {
@@ -27,7 +27,6 @@ class _MarketDataPageState extends State<MarketDataPage> {
       _error = null;
     });
 
-    final apiKey = '579b464db66ec23bdd00000185dd46a797d846526c170251b775b051';
     final filterType = _searchType == 'Market' ? 'market' : 'district';
     final apiUrl =
         'https://api.data.gov.in/resource/9ef84268-d588-465a-a308-a864a43d0070?api-key=$apiKey&format=json&filters[$filterType]=$input';
